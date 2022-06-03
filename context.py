@@ -74,19 +74,19 @@ def main():
         )
         # Call corresponding method
         if selection == STR_IS_A_MOVIE:
-            if re_search(file, LIST_TYPE_MOVIES):
-                syncedmenu.add_single_movie(
-                    title=title,
-                    year=year,
-                    file=file
-                )
+#            if re_search(file, LIST_TYPE_MOVIES):
+            syncedmenu.add_single_movie(
+                title=title,
+                year=year,
+                file=file
+            )
         elif selection == STR_IS_A_SHOW:
-            if re_search(file, LIST_TYPE_SERIES):
-                syncedmenu.add_single_tvshow(
-                    title=title,
-                    year=year,
-                    file=file
-                )
+#            if re_search(file, LIST_TYPE_SERIES):
+            syncedmenu.add_single_tvshow(
+                title=title,
+                year=year,
+                file=file
+            )
         elif selection == STR_CANCEL_RED:
             xbmc.sleep(300)
             notification(getstring(32158))
