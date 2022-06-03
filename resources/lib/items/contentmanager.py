@@ -15,7 +15,6 @@ from resources.lib.filesystem import removedir
 from resources.lib.filesystem import create_stream_file
 from resources.lib.filesystem import delete_with_wildcard
 
-
 class ContentManagerShow():
     """Class with methods to manage a show item."""
 
@@ -25,22 +24,25 @@ class ContentManagerShow():
         # This regex has the function of detecting the patterns detected by the kodi
         # https://kodi.wiki/view/Naming_video_files/TV_shows
         self.jsondata = jsondata
-        self.managed_season_dir = join(
+        self.managed_season_dir = join([
             self.show_dir(),
             self.jsondata['season_dir']
-        )
-        self.managed_episode_path = join(
+        ])
+        self.managed_episode_path = join([
             self.managed_season_dir,
-            self.complete_episode_title()
+            self.complete_episode_title()],
+            True
         )
         self.managed_thumb_path = f'{self.managed_episode_path}-thumb.jpg'
-        self.managed_landscape_path = join(
+        self.managed_landscape_path = join([
             self.show_dir(),
-            'landscape.jpg'
+            'landscape.jpg'],
+            True
         )
-        self.managed_tvshow_nfo = join(
+        self.managed_tvshow_nfo = join([
             self.show_dir(),
-            'tvshow.nfo'
+            'tvshow.nfo'],
+            True
         )
         self.managed_strm_path = f'{self.managed_episode_path}.strm'
 
